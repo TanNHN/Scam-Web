@@ -17,7 +17,13 @@ export class HomePageComponent implements OnInit {
       console.log(resp);
       this.category = resp;
     });
+    this.productService.getProductFromcCategoryID(1)
+    .subscribe((resp: Product[]) => {
+      console.log(resp);
+      this.product = resp;
+    });
    }
+   
   ngOnInit(): void {
 
   }
@@ -28,5 +34,7 @@ export class HomePageComponent implements OnInit {
       this.product = resp;
     });;
   }
+
+ 
 
 }

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Directing Template">
+    <meta name="keywords" content="Directing, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Directing | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+
+    <!-- Dropdown -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#cate").click(function(){
+      console.log("ye");
+    $("#proList").toggle();
+  });
+});
+</script>
+</head>
+
+<body class="ov-hid">
+    <!-- Page Preloder -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__logo">
+                        <a href="#"><img src="src/assets/img/f07c1e699122c52caf94e90204734d91.jpg" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-9">
+                    <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <li><a [routerLink]="['']"><p style="font-weight: bold;">Home</p></a></li>
+                                <li class="active"><a href="#"><p style="font-weight: bold;">Categories</p></a></li>
+                                <li><a href="#"><p style="font-weight: bold;">Pages</p></a>
+                                    <ul class="dropdown">
+                                        <li><a href="./about.html">About</a></li>
+                                        <li><a href="./listing-details.html">Listing Details</a></li>
+                                        <li><a href="./blog-details.html">Blog Details</a></li>
+                                        <li><a href="./contact.html">Contact</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="./blog.html"><p style="font-weight: bold;">Blog</p></a></li>
+                                <li><a href="#"><p style="font-weight: bold;">Shop</p></a></li>
+                            </ul>
+                        </nav>
+                        <div class="header__menu__right">
+                            <a [routerLink]="['/login']" class="primary-btn">Đăng nhập</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+    <!-- Listing Section Begin -->
+    <section class="listing nice-scroll" style="width: 100%;">
+        <div class="listing__text__top" *ngFor="let cate of category" >
+            <a id="cate" >
+             <div style="border-style: solid; width: 80%; color: gainsboro;" class="listing__text__top__left" *ngIf="cate.categoryId == null; else a" >
+                 <a [routerLink]="['/category-detail', cate.id]"> <h5 style="margin: 20px;">{{cate.name}}</h5></a>
+                   <hr>
+                    <ul *ngFor="let sub of category" style="list-style-type: none;">
+                        <div class="listing__text__top__left" *ngIf="sub.categoryId == cate.id">
+                            <a [routerLink]="['/category-detail', sub.id]" style="color: blue;"> <li style="margin-left: 20px;">{{sub.name}}</li></a>
+                        </div>
+                        </ul>
+             </div>
+             <!-- <div class="listing__text__top__left" *ngIf="cate.categoryId != null" >
+                <h5>{{cate.name}}</h5>
+             </div> -->
+            </a>
+            <!-- <div class="listing__text__top__right">Nearby <i class="fa fa-sort-amount-asc"></i></div> -->
+        </div>
+   </section>
+    <!-- Listing Section End -->
+
+    <!-- Map Begin -->
+    <!-- <div class="listing__map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d423283.43556031643!2d-118.69192431097179!3d34.020730495817475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1586670019340!5m2!1sen!2sbd" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </div> -->
+    <!-- Map End -->
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script src="js/jquery.barfiller.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

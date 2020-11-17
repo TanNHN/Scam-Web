@@ -1,3 +1,7 @@
+import { ProductFeature } from './product-feature';
+import { ProductMedia } from './product-media';
+import { ProductPrice } from './product-price';
+
 export interface Product {
     id: number;
     name: string;
@@ -12,5 +16,7 @@ export interface Product {
     status: boolean;
     company?: any;
     user?: any;
-    productPrices: any[];
+    productPrices: ProductPrice[];
+    productFeatures: ProductFeature[];
+    productMedia: ProductMedia[];
 }

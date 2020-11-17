@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Directing Template">
+    <meta name="keywords" content="Directing, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Directing | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__logo">
+                        <a href="#"><img src="src/assets/img/f07c1e699122c52caf94e90204734d91.jpg" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-9">
+                    <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <li><a [routerLink]="['']"><p style="font-weight: bold;">Home</p></a></li>
+                                <li><a href="#"><p style="font-weight: bold;">Categories</p></a></li>
+                                <li><a href="#"><p style="font-weight: bold;">Pages</p></a>
+                                    <ul class="dropdown">
+                                        <li><a href="./about.html">About</a></li>
+                                        <li><a href="./listing-details.html">Listing Details</a></li>
+                                        <li><a href="./blog-details.html">Blog Details</a></li>
+                                        <li><a href="./contact.html">Contact</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="./blog.html"><p style="font-weight: bold;">Blog</p></a></li>
+                                <li><a href="#"><p style="font-weight: bold;">Shop</p></a></li>
+                            </ul>
+                        </nav>
+                        <div class="header__menu__right">
+                            <a [routerLink]="['/login']" class="primary-btn">Đăng nhập</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Listing Section Begin -->
+    <section class="listing-hero set-bg" data-setbg="assets/img/listing/details/listing-hero.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="listing__hero__option">
+                        <div class="listing__hero__icon">
+                            <img src={{product.iconUrl}} alt="">
+                        </div>
+                        <div class="listing__hero__text">
+                            <h2 style="color: black;">{{product.name}}</h2>
+                            <div class="listing__hero__widget">
+                                <div class="listing__hero__widget__rating">
+                                    <span class="icon_star"></span>
+                                    <span class="icon_star"></span>
+                                    <span class="icon_star"></span>
+                                    <span class="icon_star"></span>
+                                    <span class="icon_star-half_alt"></span>
+                                </div>
+                                <div>120 Review</div>
+                            </div>
+                            <p><span class="icon_pin_alt"></span> 1012 Vesper Dr. Columbus, Georgia, United States</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="listing__hero__btns">
+                        <a href="#" class="primary-btn share-btn"><i class="fa fa-mail-reply"></i> Share</a>
+                        <a href="#" class="primary-btn"><i class="fa fa-bookmark"></i> Quan tâm </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Listing Section End -->
+
+    <!-- Listing Details Section Begin -->
+    <section class="listing-details spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="listing__details__text">
+                        <div class="listing__details__about">
+                            <h4>Overview</h4>
+                            <p>{{product.overview}}</p>
+                                <div style="height: 20px;"></div>
+                            <h4>Description</h4>
+                            <p>{{product.description}}</p>
+                        </div>
+                        <div class="listing__details__gallery">
+                            <h4>Gallery</h4>
+                            <div class="listing__details__gallery__pic">
+                                <!-- <div class="listing__details__gallery__item">
+                                    <img class="listing__details__gallery__item__large"
+                                        src="https://www.abc.net.au/cm/rimage/12012776-3x2-xlarge.jpg?v=2" alt="">
+                                    </div> -->
+                                    
+                                <div class="listing__details__gallery__slider owl-carousel" *ngFor="let a of product.productMedia" >  
+                                    
+                                    <div ng-if="a.mediaType == 'image'">
+                                        <img data-imgbigurl={{a.url}}
+                                        src={{a.url}} alt="">
+                                    </div>
+                                    <!-- <div ng-if="a.mediaType != 'image' && a.url.includes('youtube')">
+                                        <iframe width="100" height="100" src="{{a.url}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div> -->
+                                        
+                                    <!-- <img data-imgbigurl={{media.url}}
+                                        src={{media.url}} alt=""> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="listing__details__amenities">
+                            <h4>Features</h4>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-6" *ngFor="let feature of product.productFeatures">
+                                    <div class="listing__details__amenities__item">
+                                        <h6>{{feature.feature.featureName}}</h6>
+                                        <h6 style="color: red;">{{feature.rate}}%<p>by {{feature.rateCount}} reviews</p></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="listing__details__amenities">
+                            <h4>Price</h4>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-6" *ngFor="let price of product.productPrices">
+                                    <div class="listing__details__amenities__item" style="border-style: solid; border-width: thin;">
+                                        <p style="font-weight: bold; color: red; font-size: 25px;; padding-top: 5px;" >{{price.priceType.name}}</p>
+
+                                        <p style="font-size: 20px;">{{price.price}}</p>
+                                        <hr>
+                                        <ul *ngFor="let info of price.productPriceInfos" style="list-style-type: none;">
+                                            <li style="font-size: 15px; padding: 10px;"><i class="fa fa-heart" style="font-size: 16px ;color: red;"></i>{{info.inforText}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="listing__details__rating">
+                            <h4>Rate</h4>
+                            <div class="listing__details__rating__overall">
+                                <h2>{{product.rating}}</h2>
+                                <span>({{userReview.length}} Rating)</span>
+                            </div>
+                            <div class="listing__details__rating__bar">
+                                <div class="listing__details__rating__bar__item">
+                                    <span>5</span>
+                                    <div id="bar1" class="barfiller">
+                                        <span class="fill" data-percentage="100"></span>
+                                    </div>
+                                    <span class="right"><input type="checkbox" id="5"/></span>
+                                </div>
+                                <div class="listing__details__rating__bar__item">
+                                    <span>4</span>
+                                    <div id="bar2" class="barfiller">
+                                        <span class="fill" data-percentage="75"></span>
+                                    </div>
+                                    <span class="right"><input type="checkbox" id="4"/></span>
+                                </div>
+                                <div class="listing__details__rating__bar__item">
+                                    <span>3</span>
+                                    <div id="bar3" class="barfiller">
+                                        <span class="fill" data-percentage="80"></span>
+                                    </div>
+                                    <span class="right"><input type="checkbox" id="3"/></span>
+                                </div>
+                                <div class="listing__details__rating__bar__item">
+                                    <span>2</span>
+                                    <div id="bar4" class="barfiller">
+                                        <span class="fill" data-percentage="80"></span>
+                                    </div>
+                                    <span class="right"><input type="checkbox" id="2"/></span>
+                                </div>
+                                <div class="listing__details__rating__bar__item">
+                                    <span>1</span>
+                                    <div id="bar5" class="barfiller">
+                                        <span class="fill" data-percentage="85"></span>
+                                    </div>
+                                    <span class="right"><input type="checkbox" id="1"/></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="listing__details__amenities">
+
+                            <h4>Industry</h4>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-6" *ngFor="let industry of product.productIndustries">
+                                    <div class="listing__details__amenities__item">
+                                        <p style="font-weight: bold; font-size: 25px;" style="color: red;">{{industry.industry.name}}</p>
+                                        <input type="checkbox" id="{{industry.industry.name}}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h2>Reviews</h2>
+
+                        <div class="listing__details__comment" *ngFor="let review of userReview">
+                            <div *ngIf="(review.status == 1)">
+                            <div class="listing__details__comment__item">
+                                <div class="listing__details__comment__item__pic">
+                                    <img src={{review.user.avatarUrl}} alt="">
+                                </div>
+                                <div class="listing__details__comment__item__text">
+                                    <span>{{review.completeOn}}</span>
+                                    <h5>{{review.user.name}}</h5>
+                                    <h2 style="color: red;">{{review.rate}} stars</h2>
+                                    <br>
+                                    <ng-container *ngFor="let ra of review.reviewAnswers" >
+                                            <h2 style="font-weight: bold; margin-bottom: 1px;">{{ra.question.questionText}}</h2>
+                                            <p style="margin-bottom: 10px; font-size: 20px;">{{ra.answer}}</p>
+                                        </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <!-- <div class="listing__details__review">
+                            <h4>Add Review</h4>
+                            <form action="#">
+                                <input type="text" placeholder="Name">
+                                <input type="text" placeholder="Email">
+                                <textarea placeholder="Review"></textarea>
+                                <button type="submit" class="site-btn">Submit Now</button>
+                            </form>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Listing Details Section End -->
+
+    <!-- Newslatter Section Begin -->
+    <section class="newslatter">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="newslatter__text">
+                        <h3>Subscribe Newsletter</h3>
+                        <p>Subscribe to our newsletter and don’t miss anything</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <form action="#" class="newslatter__form">
+                        <input type="text" placeholder="Your email">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Newslatter Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer__about">
+                        <div class="footer__about__logo">
+                            <a href="./index.html"><img src="assets/img/footer-logo.png" alt=""></a>
+                        </div>
+                        <p>Challenging the way things have always been done can lead to creative new options that reward
+                            you.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 offset-lg-1 col-md-6">
+                    <div class="footer__address">
+                        <ul>
+                            <li>
+                                <span>Call Us:</span>
+                                <p>(+12) 345-678-910</p>
+                            </li>
+                            <li>
+                                <span>Email:</span>
+                                <p>info.colorlib@gmail .com</p>
+                            </li>
+                            <li>
+                                <span>Fax:</span>
+                                <p>(+12) 345-678-910</p>
+                            </li>
+                            <li>
+                                <span>Connect Us:</span>
+                                <div class="footer__social">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-skype"></i></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 offset-lg-1 col-md-6">
+                    <div class="footer__widget">
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Support</a></li>
+                            <li><a href="#">How it work</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">Sign In</a></li>
+                            <li><a href="#">How it Work</a></li>
+                            <li><a href="#">Advantages</a></li>
+                            <li><a href="#">Direo App</a></li>
+                            <li><a href="#">Packages</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer__copyright">
+                        <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        </div>
+                        <div class="footer__copyright__links">
+                            <a href="#">Terms</a>
+                            <a href="#">Privacy Policy</a>
+                            <a href="#">Cookie Policy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+
+</body>
+
+</html>
